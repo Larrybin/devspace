@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Expose a secure local coding workspace through an MCP server.",
   "type": "module",
+  "packageManager": "pnpm@10.27.0",
   "main": "dist/server.js",
   "engines": {
     "node": ">=20.12 <27"
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
-    "build": "npm run clean && npm run build:app && tsc -p tsconfig.build.json",
+    "build": "pnpm clean && pnpm build:app && tsc -p tsconfig.build.json",
     "build:app": "vite build",
     "dev": "node scripts/dev-server.mjs",
     "start": "node dist/cli.js serve",
@@ -60,5 +61,17 @@
   "overrides": {
     "protobufjs": "7.6.4",
     "ws": "8.21.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "protobufjs": "7.6.4",
+      "ws": "8.21.0"
+    },
+    "onlyBuiltDependencies": [
+      "@google/genai",
+      "better-sqlite3",
+      "esbuild",
+      "protobufjs"
+    ]
   }
 }

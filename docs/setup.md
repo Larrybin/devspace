@@ -6,7 +6,7 @@ projects through DevSpace.
 ## Requirements
 
 - Node `>=20.12 <27`; Node 22 LTS is recommended
-- npm
+- npm for `npx`, or pnpm for a local checkout
 - Git
 - Bash, including Git Bash or WSL on Windows
 - a public HTTPS URL that forwards to the local DevSpace server
@@ -125,8 +125,8 @@ Git, Bash, public URL, allowed hosts, and SQLite native dependency status.
 If you are developing DevSpace itself instead of using the published package:
 
 ```bash
-npm install --include=dev
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 The same setup rules apply.
